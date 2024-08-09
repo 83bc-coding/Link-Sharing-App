@@ -21,20 +21,14 @@ const createUser = asyncHandler(async (req, res) => {
          );
    
         res.json(updateuser);
-   }else{
-       throw new Error("User Already Exists");
+   }else{   res.json("User Already Exists")
+  
+    
    
    }
    
    })
-
-
-
-
-
-
-
-
+ 
 
    const loginUserCtrl = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
@@ -56,6 +50,8 @@ if(findUser && (await findUser.isPasswordMatched(password))){
                         _id: findUser?._id,
                         name: findUser?.name,
                          email: findUser?.email,
+                         avatar:findUser?.avatar,
+                         links:findUser?.links,
                      
                         token: generateToken(findUser?._id),
                       });
@@ -70,3 +66,7 @@ if(findUser && (await findUser.isPasswordMatched(password))){
   
 
 
+ 
+
+  exports.createUser = createUser;
+  exports.loginUserCtrl = loginUserCtrl;

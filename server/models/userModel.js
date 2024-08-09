@@ -25,12 +25,13 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: "default_avatar.png"
+      default: "/avatar/default_avatar.jpeg.png"
     },
-    links: {
-      type: [String],
-      default: []
-    },
+    links: [{
+      id: String,
+      platform: String,
+      link: String
+    }],
     refreshToken: {
       type: String
     },
