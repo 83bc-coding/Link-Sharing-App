@@ -1,5 +1,6 @@
 import ButtonUi from "../../ui/ButtonUi";
-import Logo from "./icons/Logo";
+import Logo from "../icons/Logo";
+ 
 import { Container } from "./Container";
 import Logout from "./Logout";
 import { Box } from "@mui/material";

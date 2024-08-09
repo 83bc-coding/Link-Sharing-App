@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import React from "react";
-import Typograph from "../../../ui/Typograph";
+ import Typograph from "../../../ui/Typograph";
 import FileUpload from "./FileUpload";
 
 const UploadIMage = () => {

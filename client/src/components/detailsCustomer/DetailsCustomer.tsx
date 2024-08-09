@@ -1,18 +1,18 @@
 import { Box } from "@mui/material";
 import ProfileLayout from "../Layout/mobile";
-import Taps from "./Taps";
+import Taps from "../Tab/Taps";
 
 const DetailsCustomer = () => {
   return (
     <Box
       sx={{
         height: "700px",
-        width: "100%", 
+        width: "100%",
         marginTop: "50px",
-        display:'flex',
-        justifyContent:'space-between',
+        display: "flex",
+        justifyContent: "space-between",
       }}
-    > 
+    >
       <ProfileLayout />
       <Taps />
     </Box>

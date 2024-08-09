@@ -1,50 +1,74 @@
-import React, { useState } from 'react';  
-import { Card, CardContent, Typography, TextField, Select, MenuItem, SelectChangeEvent } from '@mui/material';  
-import GitHubIcon from '@mui/icons-material/GitHub';  
-import LinkedInIcon from '@mui/icons-material/LinkedIn';  
+import React, { useState } from "react";
+import {
+  CardContent,
+  Typography,
+  TextField,
+  IconButton,
+  Card,
+} from "@mui/material";
+import LinksSelect from "./LinksSelect";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { CardType } from "../../../types/CardType";
 
-const LinkCard = () => {  
-  const [selectedValue, setSelectedValue] = useState('Github');  
-  const [link, setLink] = useState('https://www.github.com/');  
+interface LinkCardProps {
+  index: number;
+  card: CardType;
+  onDelete: (index: number) => void;
+  updateCard: (index: number, updatedCard: CardType) => void;
+}
 
-  const handleChange = (event: SelectChangeEvent<string>) => {  
-    setSelectedValue(event.target.value);  
-  };   
+const LinkCard: React.FC<LinkCardProps> = ({
+  index,
+  card,
+  onDelete,
+  updateCard,
+}) => {
+  const [link, setLink] = useState(card.link);
 
-  const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {  
-    setLink(event.target.value);  
-  };  
+  const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newLink = event.target.value;
+    setLink(newLink);
+    updateCard(index, { ...card, link: newLink });
+  };
 
-  return (  
-    <Card variant="outlined" style={{ margin: '16px', padding: '16px' }}>  
-      <Typography variant="h6">Link #1</Typography>  
-      <CardContent>  
-        <Typography variant="caption" sx={{ marginTop: '20px' }}>  
-          Platform  
-        </Typography>  
-        <Select  
-          value={selectedValue}  
-          onChange={handleChange}  
-          variant="outlined"  
-          style={{ width: '100%', marginBottom: '16px' }}  
-        >  
-          <MenuItem value="Github">  
-            <GitHubIcon /> Github  
-          </MenuItem>  
-          <MenuItem value="LinkedIn">  
-            <LinkedInIcon /> LinkedIn  
-          </MenuItem>  
-        </Select>  
-        <TextField  
-          label="Link"  
-          variant="outlined"  
-          fullWidth  
-          value={link}  
-          onChange={handleLinkChange}  
-        />  
-      </CardContent>  
-    </Card>  
-  );  
-};  
+  return (
+    <Card
+      variant="outlined"
+      sx={{
+        margin: "16px",
+        padding: "16px",
+        backgroundColor: "#FAFAFA",
+        width: "90%",
+        height: "200px",
+      }}
+    >
+      <Typography
+        variant="h6"
+        component="div"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        Link #{index + 1}
+        <IconButton onClick={() => onDelete(index)} size="small">
+          <DeleteIcon />
+        </IconButton>
+      </Typography>
+      <CardContent>
+        <Typography variant="caption">Platform</Typography>
+        <LinksSelect card={card} updateCard={updateCard} index={index} />
+        <TextField
+          fullWidth
+          label="Link"
+          variant="outlined"
+          name="link"
+          value={link}
+          onChange={handleLinkChange}
+          style={{ marginBottom: "10px" }}
+        />
+      </CardContent>
+    </Card>
+  );
+};
 
 export default LinkCard;

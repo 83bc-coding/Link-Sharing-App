@@ -1,26 +1,26 @@
-import { Box } from "@mui/material";
-
-import phoneLayout from "../../assets/image/illustration-phone-mockup.svg";
+import { Box } from "@mui/system";
+import { Container } from "./Container";
+import { ContainerBar } from "./ContainerBar";
+import ListLinksBar from "./ListLinksBar";
+import ProfileLogo from "./ProfileLogo";
+import { Typography } from "@mui/material";
 const ProfileLayout = () => {
   return (
- 
-      <Box
-        sx={{
-          height: "700px",
-          width: "49%",
-          backgroundColor:'white',
-          backgroundImage: `URL(${phoneLayout})`,
-          backgroundPosition: "center center ",
-          backgroundSize: "18rem",
-          backgroundRepeat: "no-repeat",
-          display:{
-           xs:"none", sm:'none',md:'block'
-          },
-     
-  
-        }}
-      ></Box>
- 
+    <Container>
+      <ProfileLogo />
+      <Box sx={{backgroundColor:'white'}}>
+        <Typography variant="h6" sx={{ textAlign:'center'}} gutterBottom>
+          mohammed Alkhazraji
+        </Typography>
+        <Typography variant="subtitle1"  sx={{textAlign:'center',opacity:'0.7'}} gutterBottom>
+        asatyn44@gmail.com
+
+</Typography>
+      </Box>
+      <ContainerBar>
+        <ListLinksBar />
+      </ContainerBar>
+    </Container>
   );
 };
 

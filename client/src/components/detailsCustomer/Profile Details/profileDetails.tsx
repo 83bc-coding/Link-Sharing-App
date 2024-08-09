@@ -1,5 +1,4 @@
-import { Box } from "@mui/material";
-import Title from "../../../ui/Title";
+ import Title from "../../../ui/Title";
 import { Container } from "./Container";
 import UploadIMage from "./UploadIMage";
 import InputFiled from "../../../ui/InputFiled";

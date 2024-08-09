@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
- 
+
 import { Box } from "@mui/material";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import AddIcon from "@mui/icons-material/Add";
@@ -75,7 +75,7 @@ const FileUpload: React.FC = () => {
           <span>
             <AddIcon /> upload
           </span>
-        Image
+          Image
         </Box>
       </Box>
     </>
