@@ -27,11 +27,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "/avatar/default_avatar.jpeg.png"
     },
-    links: [{
-      id: String,
-      platform: String,
-      link: String
-    }],
+    
     refreshToken: {
       type: String
     },

@@ -28,7 +28,39 @@ const createUser = asyncHandler(async (req, res) => {
    }
    
    })
+   const updateUser = asyncHandler(async (req, res) => {
+    const { _id, firstName, lastName, avatar } = req.body.user;
+  
+    const user = await User.findById(_id);
+  
+    if (user) {
+      user.firstName = firstName;
+      user.lastName = lastName;
+      user.avatar = avatar;
+  
+      const updatedUser = await user.save();
+      res.json(updatedUser);
+    } else {
+      res.status(404).json({ message: "User Not Found" });
+    }
+  });
+       //    const userUpdate = await User.findByIdAndUpdate(
+    //     user._id,{
+    //       firstName:firstName,
+    //       lastName:lastName,
+    //       avatar:avatar
+    //     }
+    //     ,
+        
+
+    //    );
+    //    res.json(userUpdate)
+
+    //   }else{
+    //     res.json("User Not Found")      }
  
+    
+   
 
    const loginUserCtrl = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
@@ -48,11 +80,10 @@ if(findUser && (await findUser.isPasswordMatched(password))){
                     maxAge: 72 * 60 * 60 * 1000,
                   });  res.json({
                         _id: findUser?._id,
-                        name: findUser?.name,
+                        firstName: findUser?.firstName,
+                        lastName: findUser?.lastName,
                          email: findUser?.email,
                          avatar:findUser?.avatar,
-                         links:findUser?.links,
-                     
                         token: generateToken(findUser?._id),
                       });
 
@@ -70,3 +101,4 @@ if(findUser && (await findUser.isPasswordMatched(password))){
 
   exports.createUser = createUser;
   exports.loginUserCtrl = loginUserCtrl;
+  exports.updateUser = updateUser;
