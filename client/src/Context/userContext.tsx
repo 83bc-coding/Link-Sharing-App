@@ -7,6 +7,7 @@ export interface UserContextValue {
   deleteUser: () => void;
   updateFirstName: (text: string) => void;
   updateLastName: (text: string) => void;
+  addProfileImage: (image: string) => void;
 }
 
 export const UserContext = createContext<UserContextValue | undefined>(
@@ -27,6 +28,23 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     setUser(user);
     console.log("am add card", user);
   };
+  const addProfileImage = (image: string) => {
+    setUser((prevUser) => {
+      if (prevUser) {
+        return { ...prevUser, avatar: image };
+      } else {
+        return {
+          avatar: image,
+          _id: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          token: "",
+        };
+      }
+    });
+    console.log("Added profile image:", user);
+  };
 
   const deleteUser = () => {
     setUser(undefined);
@@ -46,6 +64,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         deleteUser,
         updateLastName,
         updateFirstName,
+        addProfileImage,
       }}
     >
       {children}

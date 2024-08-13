@@ -1,13 +1,13 @@
-import { Box, css } from '@mui/system'
- import InstagramIcon from "@mui/icons-material/Instagram";
+import { Box, css } from "@mui/system";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Instagram = () => {
   return (
     <Box
-    sx={css`
+      sx={css`
         height: 50px;
         width: 100%;
-        background-color: #128C7E;
+        background-color: #128c7e;
         border-radius: 10px;
         color: white;
         display: flex;
@@ -16,11 +16,13 @@ const Instagram = () => {
         margin-top: 10px;
         background: #833ab4;
         background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+        text-decoration: none;
       `}
-  >
-    <InstagramIcon sx={{ margin: "  15px" }} />
-    Instagram
-  </Box>  )
-}
+    >
+      <InstagramIcon sx={{ margin: "  15px" }} />
+      Instagram
+    </Box>
+  );
+};
 
-export default Instagram
+export default Instagram;

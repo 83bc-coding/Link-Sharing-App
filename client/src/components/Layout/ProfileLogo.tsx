@@ -1,13 +1,15 @@
 import { Box } from "@mui/material";
-import profile from "../../assets/image/Screenshot-2024-06-02-001335.svg";
+import { UserContext, UserContextValue } from "../../Context/userContext";
+import { useContext } from "react";
 
 const ProfileLogo = () => {
+  const { user } = useContext(UserContext) as UserContextValue;
   return (
     <Box
       sx={{
         height: "90px",
         width: "90px",
-        backgroundImage: `URL(${profile})`,
+        backgroundImage: `URL(${user?.avatar})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "7rem",
         backgroundPosition: "center center ",
