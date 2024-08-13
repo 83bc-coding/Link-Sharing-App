@@ -1,21 +1,12 @@
 import { Box } from "@mui/material";
-import {
-  BrowserRouter,
-  Outlet,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import Preview from "./components/Preview/Preview";
 import ConnectedLogin from "./components/Login/ConnectedLogin";
 import ConnectedRegister from "./components/Register/ConnectedRegister";
-
 import Providers from "./Providers";
 import Home from "./Home";
- 
-function App() {
- 
 
+function App() {
   return (
     <Box
       sx={{

@@ -16,7 +16,7 @@ const ButtonUi = ({ children, T, onClick }: props) => {
         padding: "10px 15px",
         margin: " ",
         fontWeight: "bold",
-        width:'150px',
+        width: "150px",
         backgroundColor: ` ${T ? "rgb(99 60 255 /1)" : ""}`,
 
         ":hover": {

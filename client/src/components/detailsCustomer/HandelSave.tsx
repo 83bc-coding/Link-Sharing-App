@@ -4,16 +4,13 @@ import { updateLinks } from "../qurey/updateLinks";
 import { UserContext, UserContextValue } from "../../Context/userContext";
 import { useContext } from "react";
 import { CardContext, CardContextValue } from "../../Context/LinksContext";
-import { loginTransaction } from "../qurey/loginTransction";
 
 export const HandelSave = () => {
   const { user } = useContext(UserContext) as UserContextValue;
-  const { cards,addCard } = useContext(CardContext) as CardContextValue;
+  const { cards } = useContext(CardContext) as CardContextValue;
 
-  const handale =async () => {
-  const data = await  updateLinks(user?._id,cards)
-  // loginTransaction(user?._id)
-  console.log(data,"im hande save ")
+  const handale = async () => {
+    updateLinks(user?._id, cards);
   };
 
   return (
@@ -23,20 +20,18 @@ export const HandelSave = () => {
         width: "90%",
 
         margin: "20px auto 0",
-       
-  
-        position:'fixed',
-        top:'92%',
-        right:'0px',
-        left:'75%'
+
+        position: "fixed",
+        top: "92%",
+        right: "0px",
+        left: "75%",
       }}
     >
-      {
-        user &&  <ButtonUi onClick={handale} T>
-        SAVE
-      </ButtonUi>
-      }
-     
+      {user && (
+        <ButtonUi onClick={handale} T>
+          SAVE
+        </ButtonUi>
+      )}
     </Box>
   );
 };

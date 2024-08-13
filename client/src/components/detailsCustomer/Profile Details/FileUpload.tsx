@@ -11,10 +11,6 @@ const FileUpload: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [selectedFile, setSelectedFile] = useState<SelectedFile | null>(null);
-  const [progress, setProgress] = useState<number>(0);
-  const [uploadStatus, setUploadStatus] = useState<
-    "select" | "uploading" | "done"
-  >("select");
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {

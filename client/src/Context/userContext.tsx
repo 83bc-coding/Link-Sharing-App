@@ -5,30 +5,27 @@ export interface UserContextValue {
   user: UserType;
   addUser: (user: UserType) => void;
   deleteUser: () => void;
-  updateFirstName: (text:string) => void;
-  updateLastName: (text:string) => void;
+  updateFirstName: (text: string) => void;
+  updateLastName: (text: string) => void;
 }
 
 export const UserContext = createContext<UserContextValue | undefined>(
   undefined
 );
 
-
 interface UserProviderProps {
   children: ReactNode;
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-
-
   const [user, setUser] = useState<UserType | undefined>(undefined);
-  useEffect(()=>{
-console.log("i user card",user)
-  },[user])
+  useEffect(() => {
+    console.log("i user card", user);
+  }, [user]);
 
   const addUser = (user: UserType) => {
     setUser(user);
-    console.log("am add card",user)
+    console.log("am add card", user);
   };
 
   const deleteUser = () => {
@@ -42,7 +39,15 @@ console.log("i user card",user)
   };
 
   return (
-    <UserContext.Provider value={{ user: user!, addUser, deleteUser,updateLastName,updateFirstName }}>
+    <UserContext.Provider
+      value={{
+        user: user!,
+        addUser,
+        deleteUser,
+        updateLastName,
+        updateFirstName,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

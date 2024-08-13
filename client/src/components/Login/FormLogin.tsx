@@ -1,5 +1,5 @@
- import { ReactNode, } from "react";
- 
+import { ReactNode } from "react";
+
 import Login from "./Login";
 import Input from "../../ui/Input";
 type prop = {

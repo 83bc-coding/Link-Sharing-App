@@ -1,9 +1,6 @@
-import { Formik, useFormik } from "formik";
-import Register from "./Register";
-import { registerSchema } from "../../types/schema/customer";
-import Input from "../../ui/Input";
-import { Box } from "@mui/material";
-import { ReactNode } from "react";
+ import Register from "./Register";
+ import Input from "../../ui/Input";
+ import { ReactNode } from "react";
 type prop ={
   formik:any;
   children?: ReactNode;

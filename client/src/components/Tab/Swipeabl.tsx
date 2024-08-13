@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import Links from "../detailsCustomer/Links/Links";
 import ProfileDetails from "../detailsCustomer/Profile Details/profileDetails";
-import { HandelSave } from "../detailsCustomer/HandelSave";
-
+ 
 const Swipeabl = () => {
   const [value, setValue] = useState(0);
 

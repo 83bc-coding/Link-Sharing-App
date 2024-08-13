@@ -1,17 +1,15 @@
 import ButtonUi from "../../ui/ButtonUi";
 import Logo from "../icons/Logo";
 import { useNavigate } from "react-router";
-
 import { Container } from "./Container";
 import Logout from "./Logout";
 import { Box } from "@mui/material";
 import { useContext } from "react";
 import { UserContext, UserContextValue } from "../../Context/userContext";
-
 const NavBar = () => {
   const { user } = useContext(UserContext) as UserContextValue;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Container>
       <Logo />
@@ -25,9 +23,13 @@ const NavBar = () => {
       >
         {" "}
         <Logout />
-        <ButtonUi onClick={()=>{
-          navigate(`/preview/${user?._id}`)
-        }}>Preview</ButtonUi>{" "}
+        <ButtonUi
+          onClick={() => {
+            navigate(`/preview/${user?._id}`);
+          }}
+        >
+          Preview
+        </ButtonUi>{" "}
       </Box>
     </Container>
   );

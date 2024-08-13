@@ -24,7 +24,6 @@ const ConnectedRegister = () => {
     validationSchema: registerSchema,
     onSubmit: (values) => {
       registerTransction(values);
-
       navigate("/login");
     },
   });

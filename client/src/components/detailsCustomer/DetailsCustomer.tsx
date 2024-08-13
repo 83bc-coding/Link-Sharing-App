@@ -1,14 +1,12 @@
 import { Box, CircularProgress } from "@mui/material";
 import ProfileLayout from "../Layout/mobile";
 import Taps from "../Tab/Taps";
- import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext, UserContextValue } from "../../Context/userContext";
-import { useNavigate } from "react-router-dom";
  
 const DetailsCustomer = () => {
   const { user } = useContext(UserContext) as UserContextValue;
- 
-  
+
   return (
     <>
       <Box
@@ -36,9 +34,6 @@ const DetailsCustomer = () => {
             }}
           >
             <CircularProgress />
-           
-             
-      
           </Box>
         )}
       </Box>

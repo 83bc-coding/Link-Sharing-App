@@ -1,8 +1,8 @@
 import { Box } from "@mui/system";
-import   { ReactNode } from "react";
+import { ReactNode } from "react";
 type props = {
-    children?: ReactNode;
-  };
+  children?: ReactNode;
+};
 const MContainer = ({ children }: props) => {
   return (
     <Box
@@ -17,7 +17,6 @@ const MContainer = ({ children }: props) => {
         width: "60%",
       }}
     >
-        
       {children}
     </Box>
   );

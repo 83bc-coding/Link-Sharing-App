@@ -1,10 +1,11 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
  type props = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
 };
-const TypoInformation = ({ name, email }: props) => {
+const TypoInformation = ({ firstName, email,lastName }: props) => {
   return (
     <Box
       sx={{
@@ -20,7 +21,7 @@ const TypoInformation = ({ name, email }: props) => {
         sx={{ textAlign: "center", fontWeight: "bold" }}
         gutterBottom
       >
-        {name}
+        {firstName}  {lastName}
       </Typography>
       <Typography
         variant="subtitle1"

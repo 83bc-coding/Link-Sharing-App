@@ -9,7 +9,7 @@ export const updateUser = async (user: UserType) => {
   });
 
   const { data } = response;
- 
+
   console.log(data, "in updateUser data");
   return data;
 };

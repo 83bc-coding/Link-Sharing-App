@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import {TitleType} from "../types/Title";
+import { TitleType } from "../types/Title";
 
 const Title = ({ title, description }: TitleType) => {
   return (

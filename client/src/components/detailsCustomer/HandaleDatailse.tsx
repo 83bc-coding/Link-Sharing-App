@@ -9,9 +9,7 @@ const HandaleDatailse = () => {
   const { user } = useContext(UserContext) as UserContextValue;
 
   const handale = async () => {
-    const data = await updateUser(user);
-    // loginTransaction(user?._id)
-    console.log(data, "im handedatailse save ");
+     await updateUser(user);
   };
 
   return (

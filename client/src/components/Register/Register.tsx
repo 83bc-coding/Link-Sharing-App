@@ -1,8 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import MContainer from "./Container";
 import Logo from "../icons/Logo";
-import Input from "../../ui/Input";
-import { ReactNode } from "react";
+ import { ReactNode } from "react";
 type props = {
     children?: ReactNode;
   };

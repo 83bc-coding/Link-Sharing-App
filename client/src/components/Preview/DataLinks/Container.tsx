@@ -2,8 +2,12 @@ import { Box } from "@mui/material";
 import ProfileLogo from "./ProfileLogo";
 import TypoInformation from "./TypoInformation";
 import ListLinks from "./ListLinks";
+import { useContext } from "react";
+import { UserContextPreview, UserContextValuePreview } from "../../../Context/preview/userContextPreview";
 
 function Contaiiner() {
+  const { user } = useContext(UserContextPreview) as UserContextValuePreview;
+
   return (
     <Box
     sx={{
@@ -18,7 +22,7 @@ function Contaiiner() {
       borderRadius: '15px',}}
     >
       <ProfileLogo />
-      <TypoInformation name="mohammed Alkdiadsdcbh" email="dhcdchkdsjn" />
+      <TypoInformation firstName={user?.firstName} lastName={user?.lastName} email={user?.email} />
       <ListLinks />
     </Box>
   );

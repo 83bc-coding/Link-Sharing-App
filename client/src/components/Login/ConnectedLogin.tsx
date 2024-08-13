@@ -28,7 +28,6 @@ const ConnectedLogin = () => {
       addCardServer(links);
 
       navigate("/");
-      console.log(values);
     },
   });
   return (
