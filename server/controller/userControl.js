@@ -44,28 +44,51 @@ const createUser = asyncHandler(async (req, res) => {
       res.status(404).json({ message: "User Not Found" });
     }
   });
-       //    const userUpdate = await User.findByIdAndUpdate(
-    //     user._id,{
-    //       firstName:firstName,
-    //       lastName:lastName,
-    //       avatar:avatar
-    //     }
-    //     ,
-        
 
-    //    );
-    //    res.json(userUpdate)
 
-    //   }else{
-    //     res.json("User Not Found")      }
+
+
+
+
+
+
+
+
+
+
+
+
+  const getUserId = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+  
+    const user = await User.findById(id);
+  
+    if (user) {
+ 
+  
+      res.json({
+        _id: user?._id,
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+         email: user?.email,
+         avatar:user?.avatar,
+       });    } else {
+      res.status(404).json({ message: "User Not Found" });
+    }
+  });
+
+
+
+
+
+
  
     
    
 
    const loginUserCtrl = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    // check if user exists or not
-    const findUser = await User.findOne({ email });
+     const findUser = await User.findOne({ email });
 if(findUser && (await findUser.isPasswordMatched(password))){
           const refreshToken = await generateRefreshToken(findUser._id);
             const updateuser = await User.findByIdAndUpdate(
@@ -102,3 +125,4 @@ if(findUser && (await findUser.isPasswordMatched(password))){
   exports.createUser = createUser;
   exports.loginUserCtrl = loginUserCtrl;
   exports.updateUser = updateUser;
+  exports.getUserId = getUserId;
