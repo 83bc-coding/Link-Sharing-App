@@ -1,33 +1,22 @@
-import React, { useState } from "react";
+import React  from "react";
 import { ThemeProvider } from "@mui/material/styles";
- 
+
 import { theme } from "../theme/them";
 import Swipeabl from "./Swipeabl";
-import AppBarComponent from "./AppBarComponent";
-import { Container } from "./Container";
+ import { Container } from "./Container";
+import { HandelSave } from "../detailsCustomer/HandelSave";
 
 const Taps: React.FC = () => {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (_event: unknown, newValue: number) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
+ 
+ 
 
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <AppBarComponent value={value} onChange={handleChange} />
-
-        <Swipeabl
-          theme={theme}
-          value={value}
-          onChangeIndex={handleChangeIndex}
-        />
+ 
+        <Swipeabl  />
       </Container>
+    
     </ThemeProvider>
   );
 };

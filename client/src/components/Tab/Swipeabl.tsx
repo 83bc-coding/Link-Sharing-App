@@ -1,27 +1,39 @@
- import SwipeableViews from "react-swipeable-views";
+import React, { useState } from "react";
+import { Tabs, Tab, Box } from "@mui/material";
 import Links from "../detailsCustomer/Links/Links";
-
-import { TabPanel } from "./TabPanel";
 import ProfileDetails from "../detailsCustomer/Profile Details/profileDetails";
-type propr = {
-  value: any;
-  theme: any;
-  onChangeIndex: any;
-};
-const Swipeabl = ({ value, theme, onChangeIndex }: propr) => {
+import { HandelSave } from "../detailsCustomer/HandelSave";
+
+const Swipeabl = () => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setValue(newValue);
+  };
+
   return (
-    <SwipeableViews
-      axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-      index={value}
-      onChangeIndex={onChangeIndex}
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+      }}
     >
-      <TabPanel value={value} index={0}>
-        <Links />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <ProfileDetails />
-      </TabPanel>
-    </SwipeableViews>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+      >
+        <Tab label="Links" />
+        <Tab label="Profile Details" />
+      </Tabs>
+      <Box sx={{ flexGrow: 1, overflowY: "auto" }}>
+        {value === 0 &&  <><Links />   </>}
+        {value === 1 && <ProfileDetails />}
+      </Box>
+    </Box>
   );
 };
 

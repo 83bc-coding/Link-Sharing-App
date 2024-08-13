@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import LinkCard from "./LinkCard";
 import AddLinks from "./AddLinks";
 import { CardContext, CardContextValue } from "../../../Context/LinksContext";
-   
+    
 const ListLinks = () => {
   const { cards, deleteCard, updateCard, addCard } = useContext(
     CardContext
@@ -33,6 +33,7 @@ const ListLinks = () => {
           updateCard={updateCard}
         />
       ))}
+  
     </>
   );
 };

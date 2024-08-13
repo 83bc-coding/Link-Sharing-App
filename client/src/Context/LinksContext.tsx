@@ -4,6 +4,7 @@ import { CardType } from "../types/CardType";
 export interface CardContextValue {
   cards: CardType[];
   addCard: (card: CardType) => void;
+  addCardServer: (newCards: CardType[]) => void;
   deleteCard: (index: number) => void;
   updateCard: (index: number, updatedCard: CardType) => void;
 }
@@ -22,7 +23,9 @@ export const CardProvider: React.FC<CardProviderProps> = ({ children }) => {
   const addCard = (card: CardType) => {
     setCards([...cards, card]);
   };
-
+  const addCardServer = (newCards: CardType[]) => {
+    setCards([...cards, ...newCards]);
+  };
   const deleteCard = (index: number) => {
     const updatedCards = [...cards];
     updatedCards.splice(index, 1);
@@ -34,9 +37,11 @@ export const CardProvider: React.FC<CardProviderProps> = ({ children }) => {
     updatedCards[index] = updatedCard;
     setCards(updatedCards);
   };
- 
+
   return (
-    <CardContext.Provider value={{ cards, addCard, deleteCard, updateCard }}>
+    <CardContext.Provider
+      value={{ cards, addCard, deleteCard, updateCard, addCardServer }}
+    >
       {children}
     </CardContext.Provider>
   );

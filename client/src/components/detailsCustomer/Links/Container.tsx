@@ -10,14 +10,13 @@ export const Container = ({ children }: props) => {
       component="section"
       sx={{
         p: 4,
-        
-       
+
         backgroundColor: "white",
-       
-        width:'80%',
-        overflow:'scrol',
-        marginTop:'8px',
-        height:'500px'
+
+        width: "80%",
+        overflow: "scrol",
+        marginTop: "8px",
+        height: "508px",
       }}
     >
       {children}

@@ -8,14 +8,17 @@ const ProfileLayout = () => {
   return (
     <Container>
       <ProfileLogo />
-      <Box sx={{backgroundColor:'white'}}>
-        <Typography variant="h6" sx={{ textAlign:'center'}} gutterBottom>
+      <Box sx={{ backgroundColor: "white" }}>
+        <Typography variant="h6" sx={{ textAlign: "center" }} gutterBottom>
           mohammed Alkhazraji
         </Typography>
-        <Typography variant="subtitle1"  sx={{textAlign:'center',opacity:'0.7'}} gutterBottom>
-        asatyn44@gmail.com
-
-</Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{ textAlign: "center", opacity: "0.7" }}
+          gutterBottom
+        >
+          asatyn44@gmail.com
+        </Typography>
       </Box>
       <ContainerBar>
         <ListLinksBar />

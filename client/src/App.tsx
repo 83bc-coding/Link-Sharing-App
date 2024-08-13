@@ -1,13 +1,21 @@
 import { Box } from "@mui/material";
-import DetailsCustomer from "./components/detailsCustomer/DetailsCustomer";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import NavBar from "./components/navBar/navBar";
+import {
+  BrowserRouter,
+  Outlet,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import Preview from "./components/Preview/Preview";
 import ConnectedLogin from "./components/Login/ConnectedLogin";
 import ConnectedRegister from "./components/Register/ConnectedRegister";
-import { CardProvider } from "./Context/LinksContext";
 
+import Providers from "./Providers";
+import Home from "./Home";
+ 
 function App() {
+ 
+
   return (
     <Box
       sx={{
@@ -19,22 +27,14 @@ function App() {
       }}
     >
       <BrowserRouter>
-        <CardProvider>
+        <Providers>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <NavBar />
-                  <DetailsCustomer />
-                </>
-              }
-            />
-            <Route path="/preview" element={<Preview />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/preview/:id" element={<Preview />} />
             <Route path="/login" element={<ConnectedLogin />} />
             <Route path="/register" element={<ConnectedRegister />} />
           </Routes>
-        </CardProvider>
+        </Providers>
       </BrowserRouter>
       <Outlet />
     </Box>

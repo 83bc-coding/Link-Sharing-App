@@ -1,8 +1,8 @@
 import { Box } from "@mui/system";
-import   { ReactNode } from "react";
+import { ReactNode } from "react";
 type props = {
-    children?: ReactNode;
-  };
+  children?: ReactNode;
+};
 const Container = ({ children }: props) => {
   return (
     <Box

@@ -15,13 +15,13 @@ const FormRegister = ({formik,children}:prop) => {
     <Register>
       <Input
         title="Name"
-        touched={formik.touched.name}
-        errors={formik.errors.name}
-        onChange={formik.handleChange("name")}
-        onBlur={formik.handleBlur("name")}
+        touched={formik.touched.firstName}
+        errors={formik.errors.firstName}
+        onChange={formik.handleChange("firstName")}
+        onBlur={formik.handleBlur("firstName")}
         placeholder={"Alexa"}
-        name="name"
-        value={formik.values.name}
+        name="firstName"
+        value={formik.values.firstName}
       />
       <Input
         title="Last Name"

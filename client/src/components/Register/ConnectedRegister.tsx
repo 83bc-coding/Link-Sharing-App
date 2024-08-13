@@ -6,39 +6,26 @@ import { Typography } from "@mui/material";
 import { useState } from "react";
 import Success from "../Alert/Success";
 import Error from "../Alert/Error";
-import axios from "axios";
 import { useNavigate } from "react-router";
+import { registerTransction } from "../qurey/registerTRsnsction";
 
 const ConnectedRegister = () => {
   const [success, setuccess] = useState(false);
   const [error, setError] = useState(false);
-  const navigate =useNavigate()
-  const registerTransction = (data: any) => {
-    axios
-      .post("http://localhost:5000/api/users/register", data)
-      .then((res) => {
-        const data = res;
-        console.log(data);
-        setuccess(true);
-      
-      })
-      .catch((erroe) => {
-       console.log(erroe)
-       setError(true)
-      });
-  };
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      name: "",
+      firstName: "",
       lastName: "",
     },
     validationSchema: registerSchema,
     onSubmit: (values) => {
       registerTransction(values);
-      navigate('/login')
-      console.log(values);
+
+      navigate("/login");
     },
   });
   return (

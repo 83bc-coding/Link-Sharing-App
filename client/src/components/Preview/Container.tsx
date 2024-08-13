@@ -10,7 +10,7 @@ export const Container = ({ children }: props) => {
       sx={{
         width: "100%",
         backgroundColor: "rgb(99 60 255 /1)",
-        height: "350px",
+        height: "250px",
 
         display: "flex",
         flexDirection: "column",

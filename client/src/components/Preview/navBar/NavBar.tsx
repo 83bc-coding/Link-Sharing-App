@@ -13,8 +13,9 @@ const NavBar = () => {
         backgroundColor: "white",
         margin: "20px",
         width: "92%",
-        height: "50px",
+        height: "80px",
         borderRadius: "15px",
+        alignItems:'center'
       }}
     >
       {" "}

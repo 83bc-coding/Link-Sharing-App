@@ -5,8 +5,7 @@ const ListLinks = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "red",
-        width: "60%",
+         width: "60%",
         position:'absolute',
         top:'350px',
         marginX:"auto",
